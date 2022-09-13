@@ -37,7 +37,7 @@ const Title= styled.h1`
 const Button= styled.button`
     padding: 10px 20px;
     border: none;
-    background-color:#fff;
+    background-color:#fcf1e5;
     color: #777;
     cursor: pointer;
     font-weight:600;
