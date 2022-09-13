@@ -1,9 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import * as AiIcons from "react-icons/ai"
+import * as IoIcons from "react-icons/io"
+import * as FaIcons from "react-icons/fa"
 
 const Container = styled.div`
     display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 const Left = styled.div`
@@ -35,13 +39,37 @@ const SocialIcon = styled.div`
     cursor: pointer;
 `
 
+const Center = styled.div`
+    flex:1;
+    padding: 20px;
+    margin-left:3rem;
+`
+
+const Title = styled.h3`
+    margin-bottom: 20px;
+`
+
+const List = styled.ul`
+    width: 50%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+`
+
+const ListItem = styled.li`
+    width: 50%;
+    margin-bottom: 10px;
+`
 
 const Right = styled.div`
     flex:1;
+    padding: 20px;
 `
 
-const Center = styled.div`
-    flex:1;
+const ContactItem = styled.div`
+    margin-bottom: 20px;
 `
 
 const Footer = () => {
@@ -62,8 +90,26 @@ const Footer = () => {
                 </SocialIcon>
             </SocialContainer>
         </Left>
-        <Center></Center>
-        <Right></Right>
+        <Center>
+            <Title>Useful Links</Title>
+            <List>
+                <ListItem>Home</ListItem>
+                <ListItem>Man Fashion</ListItem>
+                <ListItem>Accesories</ListItem>
+                <ListItem>Order Tracking</ListItem>
+                <ListItem>Cart</ListItem>
+                <ListItem>Woman Fashion</ListItem>
+                <ListItem>My Account</ListItem>
+                <ListItem>Wishlist</ListItem>
+            </List>
+
+        </Center>
+        <Right>
+            <Title>Contact Us!</Title>
+            <ContactItem><FaIcons.FaMapMarkerAlt/>123 Some Neighborhood, Some Street, City 12345</ContactItem>
+            <ContactItem><AiIcons.AiFillPhone/>+9 876 543 321</ContactItem>
+            <ContactItem><AiIcons.AiFillMail/>contact@berkerkls.com</ContactItem>
+        </Right>
     </Container>
   )
 }
