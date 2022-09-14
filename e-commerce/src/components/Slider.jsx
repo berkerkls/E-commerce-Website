@@ -2,6 +2,7 @@ import styled from "styled-components"
 import * as FaArrow from "react-icons/fa"
 import { useState } from "react"
 import { sliderItems } from "../data"
+import { mobile } from "../responsive"
 
 const Container = styled.div`
     width:100%;
@@ -9,6 +10,7 @@ const Container = styled.div`
     display: flex;
     position: relative;
     overflow: hidden;
+    ${mobile({display:"none"})};
 `
 
 const Arrow = styled.div`
@@ -96,7 +98,7 @@ const Slider = () => {
         <Wrapper slideIndex = {slideIndex}>
 
             {sliderItems.map((item) => (
-            <Slide bg={item.bg}>
+            <Slide bg={item.bg} key={item.id}>
                 <ImageContainer>
                     <Image src={item.img} />
                 </ImageContainer>
