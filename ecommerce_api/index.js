@@ -4,6 +4,9 @@ const mongoose = require("mongoose")
 const dotenv = require("dotenv")
 const userRoute = require("./routes/user")
 const authRoute = require("./routes/authentication")
+const productRoute = require("./routes/product")
+const cartRoute = require("./routes/cart")
+const orderRoute = require("./routes/order")
 
 dotenv.config()
 
@@ -18,6 +21,9 @@ mongoose
 
     app.use("/api/users", userRoute)
     app.use("/api/authentication", authRoute)
+    app.use("/api/products", productRoute)
+    app.use("/api/carts", cartRoute)
+    app.use("/api/orders", orderRoute)
     
 
 app.listen(process.env.PORT || 3000, () => {
