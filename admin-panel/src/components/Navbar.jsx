@@ -7,7 +7,7 @@ const Container = styled.div`
     width: 100%;
     height:50px;
     background-color: #ffaa00;
-    opacity:0.8;
+    opacity:0.5;
     position: sticky;
     top:0;
     z-index:999;
@@ -26,7 +26,7 @@ const Left = styled.div`
 const Logo = styled.span`
     font-weight: 800;
     font-size: 26px;
-    color: #f4f4f4;
+    color: #444;
     cursor: pointer;
 `
 
