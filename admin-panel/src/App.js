@@ -2,6 +2,14 @@ import styled from "styled-components";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
+import UserList from "./pages/UserList";
 
 const Container = styled.div`
   display: flex;
@@ -11,13 +19,16 @@ const Container = styled.div`
 
 function App() {
   return (
-    <>
+    <Router>
       <Navbar />
       <Container>
         <Sidebar />
-        <Home />
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/users" element={<UserList/>}/>
+        </Routes>
       </Container>
-    </>
+    </Router>
   );
 }
 

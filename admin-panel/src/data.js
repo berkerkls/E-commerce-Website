@@ -45,3 +45,57 @@ export const userData = [
     },
     
   ];
+
+
+export const userRows = [
+    { id: 1,
+      username: "Jon Snow",
+      avatar: "https://images.pexels.com/photos/39866/entrepreneur-startup-start-up-man-39866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      email:"jon@gmail.com",
+      status: "active",
+      payment: "$200"
+    },
+    { id: 2,
+      username: "Jon Snow",
+      avatar: "https://images.pexels.com/photos/39866/entrepreneur-startup-start-up-man-39866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      email:"jon@gmail.com",
+      status: "active",
+      payment: "$200"
+    },
+    { id: 3,
+      username: "Jon Snow",
+      avatar: "https://images.pexels.com/photos/39866/entrepreneur-startup-start-up-man-39866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      email:"jon@gmail.com",
+      status: "active",
+      payment: "$200"
+    },
+    { id: 4,
+      username: "Jon Snow",
+      avatar: "https://images.pexels.com/photos/39866/entrepreneur-startup-start-up-man-39866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      email:"jon@gmail.com",
+      status: "active",
+      payment: "$200"
+    },
+    { id: 5,
+      username: "Jon Snow",
+      avatar: "https://images.pexels.com/photos/39866/entrepreneur-startup-start-up-man-39866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      email:"jon@gmail.com",
+      status: "active",
+      payment: "$200"
+    },
+    { id: 6,
+      username: "Jon Snow",
+      avatar: "https://images.pexels.com/photos/39866/entrepreneur-startup-start-up-man-39866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      email:"jon@gmail.com",
+      status: "active",
+      payment: "$200"
+    },
+    { id: 7,
+      username: "Jon Snow",
+      avatar: "https://images.pexels.com/photos/39866/entrepreneur-startup-start-up-man-39866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      email:"jon@gmail.com",
+      status: "active",
+      payment: "$200"
+    }
+  ];
+  
