@@ -8,8 +8,9 @@ const Container = styled.div`
     height:50px;
     background-color: #ffaa00;
     opacity:0.8;
-    position: fixed;
+    position: sticky;
     top:0;
+    z-index:999;
 `
 const Wraper = styled.div`
     height: 50px;
