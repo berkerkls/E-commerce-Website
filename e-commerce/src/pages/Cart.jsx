@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Announcement from '../components/Announcement'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
+import { useSelector } from "react-redux"
 
 const Container = styled.div`
 
@@ -147,6 +148,9 @@ const Button = styled.button`
 
 
 const Cart = () => {
+    
+    const cart = useSelector(state => state.cart)
+
   return (
     <Container>
         <Announcement />
@@ -163,51 +167,34 @@ const Cart = () => {
             </Top>
             <Bottom>
                 <Info>
+                    {cart.products.map((product) => (
                     <Product>
                         <ProductDetail>
-                            <Image src="https://images.pexels.com/photos/1394882/pexels-photo-1394882.jpeg?cs=srgb&dl=pexels-godisable-jacob-1394882.jpg&fm=jpg" />
+                            <Image src={product.image} />
                             <Details>
-                                <ProductName><b>Product:</b> Lebron James Shirt</ProductName>
-                                <ProductId><b>ID:</b> 934593459345</ProductId>
+                                <ProductName><b>Product:</b> {product.title}</ProductName>
+                                <ProductId><b>ID:</b> {product.id}</ProductId>
                                 <ProductColor color="444" />
-                                <ProductSize><b>Size:</b>40.5</ProductSize>
+                                <ProductSize><b>Rate:</b>{product.rate}</ProductSize>
                             </Details>
                         </ProductDetail>
                         <PriceDetail>
                             <AmountContainer>
                                 <FaIcons.FaPlus/>
-                                <ProductAmount>2</ProductAmount>
+                                <ProductAmount>{product.quantity}</ProductAmount>
                                 <FaIcons.FaMinus/>
                             </AmountContainer>
-                            <ProductPrice>$45</ProductPrice>
+                            <ProductPrice>{product.price * product.quantity}</ProductPrice>
                         </PriceDetail>
                     </Product>
+                    ))}
                     <Hr />
-                    <Product>
-                        <ProductDetail>
-                            <Image src="https://images.pexels.com/photos/1394882/pexels-photo-1394882.jpeg?cs=srgb&dl=pexels-godisable-jacob-1394882.jpg&fm=jpg" />
-                            <Details>
-                                <ProductName><b>Product:</b> Lebron James Shirt</ProductName>
-                                <ProductId><b>ID:</b> 934593459345</ProductId>
-                                <ProductColor color="444" />
-                                <ProductSize><b>Size:</b>40.5</ProductSize>
-                            </Details>
-                        </ProductDetail>
-                        <PriceDetail>
-                            <AmountContainer>
-                                <FaIcons.FaPlus/>
-                                <ProductAmount>2</ProductAmount>
-                                <FaIcons.FaMinus/>
-                            </AmountContainer>
-                            <ProductPrice>$45</ProductPrice>
-                        </PriceDetail>
-                    </Product>
                 </Info>
                 <Summary>
                     <SummaryTitle>Your Order Summary</SummaryTitle>
                     <SummaryItem>
                         <SummaryItemText>Subtotal</SummaryItemText>
-                        <SummaryItemPrice>$80</SummaryItemPrice>
+                        <SummaryItemPrice>${cart.total}</SummaryItemPrice>
                     </SummaryItem>
                     <SummaryItem>
                         <SummaryItemText>Estimated Shipping</SummaryItemText>
@@ -219,7 +206,7 @@ const Cart = () => {
                     </SummaryItem>
                     <SummaryItem>
                         <SummaryItemText type="total">Total</SummaryItemText>
-                        <SummaryItemPrice>$75</SummaryItemPrice>
+                        <SummaryItemPrice>${cart.total}</SummaryItemPrice>
                     </SummaryItem>
                     <Button>Check Out Now</Button>
                 </Summary>

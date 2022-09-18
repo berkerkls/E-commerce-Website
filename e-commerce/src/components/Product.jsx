@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { Link } from "react-router-dom"
 import * as AiIcons from "react-icons/ai"
+
 
 
 const Info =styled.div`
@@ -46,6 +48,8 @@ const Circle =styled.div`
 const Image =styled.img`
     height: 75%;
     z-index: 2;
+    width: 100px;
+    height: 100px;
 `
 
 const Icon =styled.div`
@@ -66,13 +70,16 @@ const Icon =styled.div`
 `
 
 const Product = ({item}) => {
+
   return (
     <Container>
         <Circle />
-        <Image src={item.img}/>
+        <Image src={item.image}/>
         <Info>
             <Icon>
-                <AiIcons.AiOutlineSearch />
+                <Link to={`/product/${item.id}`}>
+                    <AiIcons.AiOutlineSearch />
+                </Link>
             </Icon>
             <Icon>
                 <AiIcons.AiOutlineShoppingCart />

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { mobile } from '../responsive'
 
@@ -6,7 +7,7 @@ const Container = styled.div`
     height: 70vh;
     margin: 3px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex: 1;
     position: relative;
@@ -16,6 +17,7 @@ const Image= styled.img`
     width: 100%;
     height:100%;
     object-fit: cover;
+    margin-left: 30px;
     ${mobile({ height:"70vh" })};
 `
 
@@ -49,13 +51,15 @@ const Button= styled.button`
 
 const CategoryItems = ({item}) => {
   return (
-    <Container>
-        <Image src={item.img}/>
-        <Info>
-            <Title>{item.title}</Title>
-            <Button>SHOP NOW</Button>
-        </Info>
-    </Container>
+    <Link to={`/products/${item.cat}`}>
+        <Container>
+            <Image src={item.img}/>
+            <Info>
+                <Title>{item.title}</Title>
+                <Button>SHOP NOW</Button>
+            </Info>
+        </Container>
+    </Link>
   )
 }
 

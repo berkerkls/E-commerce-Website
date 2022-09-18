@@ -1,5 +1,7 @@
-import React from 'react'
+import React,{useState} from 'react'
 import styled from 'styled-components'
+import { login } from '../redux/apiCalls'
+import {useDispatch} from "react-redux"
 
 const Container  = styled.div`
     width: 100vw;
@@ -68,15 +70,26 @@ const Link = styled.a`
 `
 
 const Login = () => {
+
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const dispatch = useDispatch()
+
+    const handleLogin = (e) => {
+        e.preventDefault()
+
+        login(dispatch, { username, password })
+    }
+
   return (
     <Container>
         <Wrapper>
             <Title>Login</Title>
             <Form>
-                <Input placeholder="Email" />
-                <Input placeholder="Password" />
+                <Input placeholder="username" onChange={(e) => setUsername(e.target.value)} />
+                <Input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
                 <Link>Forgot your password?</Link>
-                <Button>Login</Button>
+                <Button onClick={handleLogin}>Login</Button>
             </Form>
         </Wrapper>      
     </Container>

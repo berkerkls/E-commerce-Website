@@ -3,6 +3,7 @@ import styled from "styled-components"
 import * as AiIcons from "react-icons/ai"
 import * as MdIcons from "react-icons/md"
 import { mobile } from '../responsive'
+import { Link } from 'react-router-dom'
 
 
 const Container = styled.div`
@@ -83,9 +84,11 @@ const Navbar = () => {
            <Right>
                 <MenuItem>REGISTER</MenuItem>
                 <MenuItem>SIGN IN</MenuItem>
+            <Link to="/cart" >
                 <MenuItem>
                     <MdIcons.MdShoppingCart size={25} />
                 </MenuItem>
+            </Link>
            </Right>
         </Wrapper>
     </Container>

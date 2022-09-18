@@ -5,6 +5,11 @@ import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
 import NewsLetter from "../components/NewsLetter"
 import * as FaIcons from "react-icons/fa"
+import { useLocation } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { publicRequest } from "../requestMethod"
+import { addProduct } from "../redux/cartRedux"
+import { useDispatch } from "react-redux"
 
 const Container = styled.div`
 
@@ -21,7 +26,7 @@ const ImageContainer = styled.div`
 
 const Image = styled.img`
     width: 100%;
-    height: 90vh;
+    height: 70vh;
     object-fit: cover;
 `
 
@@ -128,18 +133,53 @@ const Button = styled.button`
     }
 `
 const Product = () => {
+    const location = useLocation()
+    const id = location.pathname.split("/")[2]
+
+
+
+    const [product,setProduct] = useState({})
+    const [quantity,setQuantity] = useState(1)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        const getProduct = async () => {
+            try {
+                const res = await publicRequest.get(`/products/${id}`)
+                setProduct(res.data)
+            } catch (err) {
+
+            }
+        }
+        getProduct()
+    },[product]) 
+
+    const handleQuantity = (type) => {
+        if(type === "dec") {
+            quantity > 1 && setQuantity(quantity - 1)
+        } else {
+            setQuantity(quantity + 1)
+        }
+    }
+
+    const handleClick = () => {
+    dispatch(
+        addProduct({...product, quantity})
+    )
+    }
+
   return (
     <Container>
         <Announcement />
         <Navbar />
         <Wrapper>
             <ImageContainer>
-                <Image src="https://images.pexels.com/photos/1094684/pexels-photo-1094684.jpeg?cs=srgb&dl=pexels-mentatdgt-1094684.jpg&fm=jpg"/>
+                <Image src={product.image}/>
             </ImageContainer>
             <InfoContainer>
-                <Title>Red Dress</Title>
-                <Desc>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae error saepe sapiente, temporibus perferendis id sit, ut, odit suscipit laboriosam at sequi explicabo natus expedita! Magnam a maiores nesciunt assumenda ullam modi nobis id labore, vero eveniet impedit maxime nam commodi harum laboriosam dolorem soluta. Ratione, quam libero! Unde, temporibus.</Desc>
-                <Price>$30</Price>
+                <Title>{product.title}</Title>
+                <Desc>{product.description}</Desc>
+                <Price>${product.price}</Price>
                 <FilterContainer>
                     <Filter>
                         <FilterTitle>Color</FilterTitle>
@@ -160,11 +200,11 @@ const Product = () => {
                 </FilterContainer>
                 <AddContainer>
                     <AmountContainer>
-                        <FaIcons.FaMinusSquare />
-                        <Amount>1</Amount>
-                        <FaIcons.FaPlusSquare />
+                        <FaIcons.FaMinusSquare onClick={() => handleQuantity("dec")}  />
+                        <Amount>{quantity}</Amount>
+                        <FaIcons.FaPlusSquare onClick={() => handleQuantity("inc")} />
                     </AmountContainer>
-                    <Button>Add to Cart</Button>
+                    <Button onClick={handleClick}>Add to Cart</Button>
                 </AddContainer>
             </InfoContainer>
         </Wrapper>
