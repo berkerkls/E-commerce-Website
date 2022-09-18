@@ -46,6 +46,22 @@ export const userData = [
     
   ];
 
+export const productData = [
+    {
+      name: 'Jan',
+      "Sales": 4000
+    },
+    {
+      name: 'Feb',
+      "Sales": 2000
+    },
+    {
+      name: 'Mar',
+      "Sales": 4000
+    },
+    
+  ];
+
 
 export const userRows = [
     { id: 1,
@@ -96,6 +112,59 @@ export const userRows = [
       email:"jon@gmail.com",
       status: "active",
       payment: "$200"
+    }
+  ];
+
+
+export const productRows = [
+    { id: 1,
+      name: "Playstation 5",
+      img: "https://i.ytimg.com/vi/eECNpQ67JRo/maxresdefault.jpg",
+      stock:  2300,
+      status: "active",
+      price: "$500"
+    },
+    { id: 2,
+      name: "Playstation 5",
+      img: "https://i.ytimg.com/vi/eECNpQ67JRo/maxresdefault.jpg",
+      stock:  2300,
+      status: "active",
+      price: "$500"
+    },
+    { id: 3,
+      name: "Playstation 5",
+      img: "https://i.ytimg.com/vi/eECNpQ67JRo/maxresdefault.jpg",
+      stock:  2300,
+      status: "active",
+      price: "$500"
+    },
+    { id: 4,
+      name: "Playstation 5",
+      img: "https://i.ytimg.com/vi/eECNpQ67JRo/maxresdefault.jpg",
+      stock:  2300,
+      status: "active",
+      price: "$500"
+    },
+    { id: 5,
+      name: "Playstation 5",
+      img: "https://i.ytimg.com/vi/eECNpQ67JRo/maxresdefault.jpg",
+      stock:  2300,
+      status: "active",
+      price: "$500"
+    },
+    { id: 6,
+      name: "Playstation 5",
+      img: "https://i.ytimg.com/vi/eECNpQ67JRo/maxresdefault.jpg",
+      stock:  2300,
+      status: "active",
+      price: "$500"
+    },
+    { id: 7,
+      name: "Playstation 5",
+      img: "https://i.ytimg.com/vi/eECNpQ67JRo/maxresdefault.jpg",
+      stock:  2300,
+      status: "active",
+      price: "$500"
     }
   ];
   

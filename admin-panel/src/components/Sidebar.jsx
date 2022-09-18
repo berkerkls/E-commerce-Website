@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from "react-router-dom"
 import * as FaIcons from "react-icons/fa"
 import * as FiIcons from "react-icons/fi"
 import * as IoIcons from "react-icons/io"
@@ -51,9 +52,11 @@ const Sidebar = () => {
             <Menu>
                 <Title>Dashboard</Title>
                 <DashboardList>
+                    <Link to="/" style={{textDecoration:"none",color:"inherit"}}>
                     <DashboardListItem type="active">
                         <FaIcons.FaHome size={20} style={{marginRight:"8px"}}/>Home
                     </DashboardListItem>
+                    </Link>
                     <DashboardListItem>
                         <IoIcons.IoMdAnalytics size={20} style={{marginRight:"8px"}}/> Analytics
                     </DashboardListItem>
@@ -65,12 +68,16 @@ const Sidebar = () => {
             <Menu>
                 <Title>Quick Menu</Title>
                 <DashboardList>
-                    <DashboardListItem type="non-active">
-                        <FiIcons.FiUser size={20} style={{marginRight:"8px"}}/>User
-                    </DashboardListItem>
-                    <DashboardListItem>
-                        <AiIcons.AiOutlineShop size={20} style={{marginRight:"8px"}}/> Product
-                    </DashboardListItem>
+                    <Link to="/users" style={{textDecoration:"none", color:"inherit"}}>
+                        <DashboardListItem type="non-active">
+                            <FiIcons.FiUser size={20} style={{marginRight:"8px"}}/>User
+                        </DashboardListItem>
+                    </Link>
+                    <Link to="/products" style={{textDecoration:"none",color:"inherit"}}>
+                        <DashboardListItem>
+                            <AiIcons.AiOutlineShop size={20} style={{marginRight:"8px"}}/> Product
+                        </DashboardListItem>
+                    </Link>
                     <DashboardListItem>
                         <FaIcons.FaMoneyCheck size={20} style={{marginRight:"8px"}}/> Transaction
                     </DashboardListItem>
