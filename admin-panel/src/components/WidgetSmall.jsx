@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import * as MdIcons from "react-icons/md"
+import { userRequest } from "../redux/requestMethods"
 
 
 
@@ -59,60 +60,33 @@ const Button = styled.button`
 
 
 export const WidgetSmall = () => {
+    const[users, setUsers] = useState([])
+
+    useEffect(() => {
+        const getUsers = async () => {
+            const res = await userRequest.get("/users?limit=7")
+            setUsers(res.data)
+        }
+
+        getUsers()
+    },[]) 
+
   return (
     <Container>
         <Title>New Join Member</Title>
         <WidgetList>
-            <WidgetListItem>
-                <Image src="https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?cs=srgb&dl=pexels-moose-photos-1036623.jpg&fm=jpg" alt="image"/>
+            {users.map((user) => ( 
+                <WidgetListItem key={user.id}>
+                <Image src="https://t4.ftcdn.net/jpg/03/59/58/91/360_F_359589186_JDLl8dIWoBNf1iqEkHxhUeeOulx0wOC5.jpg" alt="image"/>
                 <WidgetSmallUser>
-                    <UserName>JohnDoe</UserName>
+                    <UserName>{user.username}</UserName>
                     <UserTitle>Frontend Developer</UserTitle>
                 </WidgetSmallUser>
                 <Button>
                     <MdIcons.MdVisibility style={{marginRight: "5px", fontSize: "16px"}} /> Display
                 </Button>
             </WidgetListItem>
-            <WidgetListItem>
-                <Image src="https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?cs=srgb&dl=pexels-moose-photos-1036623.jpg&fm=jpg" alt="image"/>
-                <WidgetSmallUser>
-                    <UserName>JohnDoe</UserName>
-                    <UserTitle>Frontend Developer</UserTitle>
-                </WidgetSmallUser>
-                <Button>
-                    <MdIcons.MdVisibility style={{marginRight: "5px", fontSize: "16px"}} /> Display
-                </Button>
-            </WidgetListItem>
-            <WidgetListItem>
-                <Image src="https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?cs=srgb&dl=pexels-moose-photos-1036623.jpg&fm=jpg" alt="image"/>
-                <WidgetSmallUser>
-                    <UserName>JohnDoe</UserName>
-                    <UserTitle>Frontend Developer</UserTitle>
-                </WidgetSmallUser>
-                <Button>
-                    <MdIcons.MdVisibility style={{marginRight: "5px", fontSize: "16px"}} /> Display
-                </Button>
-            </WidgetListItem>
-            <WidgetListItem>
-                <Image src="https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?cs=srgb&dl=pexels-moose-photos-1036623.jpg&fm=jpg" alt="image"/>
-                <WidgetSmallUser>
-                    <UserName>JohnDoe</UserName>
-                    <UserTitle>Frontend Developer</UserTitle>
-                </WidgetSmallUser>
-                <Button>
-                    <MdIcons.MdVisibility style={{marginRight: "5px", fontSize: "16px"}} /> Display
-                </Button>
-            </WidgetListItem>
-            <WidgetListItem>
-                <Image src="https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?cs=srgb&dl=pexels-moose-photos-1036623.jpg&fm=jpg" alt="image"/>
-                <WidgetSmallUser>
-                    <UserName>JohnDoe</UserName>
-                    <UserTitle>Frontend Developer</UserTitle>
-                </WidgetSmallUser>
-                <Button>
-                    <MdIcons.MdVisibility style={{marginRight: "5px", fontSize: "16px"}} /> Display
-                </Button>
-            </WidgetListItem>
+            ))}
         </WidgetList>
     </Container>
   )

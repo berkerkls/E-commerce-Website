@@ -1,7 +1,6 @@
-import { red } from '@mui/material/colors'
-import { display } from '@mui/system'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { userRequest } from '../redux/requestMethods'
 
 
 
@@ -43,11 +42,25 @@ const Image = styled.img`
 
 
 export const WidgetLarge = () => {
+    const[ orders, setOrders] = useState([])
+
+    useEffect(() => {
+        const getOrders = async () => {
+            const res = await userRequest.get("/users?limit=5")
+            setOrders(res.data)
+        }
+
+        getOrders()
+    },[]) 
+
+
     const Button = ({type}) => {
         return <button style={{
             padding:"5px 7px", 
             border:"none", 
-            borderRadius:"10px"
+            borderRadius:"10px",
+            backgroundColor: "green",
+            color:"#f4f4f4"
         }}>{type}</button>
     }
   return (
@@ -60,42 +73,17 @@ export const WidgetLarge = () => {
                 <WidgeTh>Amount</WidgeTh>
                 <WidgeTh>Status</WidgeTh>
             </WidgetTr>
+            {orders.map((order) => (
             <WidgetTr>
                 <WidgetUser>
-                    <Image src="https://images.pexels.com/photos/8969690/pexels-photo-8969690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-                    <Username>Susan Carol</Username>
+                    <Image src="https://t4.ftcdn.net/jpg/03/59/58/91/360_F_359589186_JDLl8dIWoBNf1iqEkHxhUeeOulx0wOC5.jpg "/>
+                    <Username>{order.username}</Username>
                 </WidgetUser>
                 <WidgetDate>17 Sep 2022</WidgetDate>
-                <WidgetAmount>$200</WidgetAmount>
+                <WidgetAmount>${order.address.number}</WidgetAmount>
                 <Button type="Approved"></Button>
             </WidgetTr>
-            <WidgetTr>
-                <WidgetUser>
-                    <Image src="https://images.pexels.com/photos/8969690/pexels-photo-8969690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-                    <Username>Susan Carol</Username>
-                </WidgetUser>
-                <WidgetDate>17 Sep 2022</WidgetDate>
-                <WidgetAmount>$200</WidgetAmount>
-                <Button type="Declined"></Button>
-            </WidgetTr>
-            <WidgetTr>
-                <WidgetUser>
-                    <Image src="https://images.pexels.com/photos/8969690/pexels-photo-8969690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-                    <Username>Susan Carol</Username>
-                </WidgetUser>
-                <WidgetDate>17 Sep 2022</WidgetDate>
-                <WidgetAmount>$200</WidgetAmount>
-                <Button type="pending"></Button>
-            </WidgetTr>
-            <WidgetTr>
-                <WidgetUser>
-                    <Image src="https://images.pexels.com/photos/8969690/pexels-photo-8969690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-                    <Username>Susan Carol</Username>
-                </WidgetUser>
-                <WidgetDate>17 Sep 2022</WidgetDate>
-                <WidgetAmount>$200</WidgetAmount>
-                <Button type="approved"></Button>
-            </WidgetTr>
+            ))}
         </WidgetTable>
     </Container>
   )

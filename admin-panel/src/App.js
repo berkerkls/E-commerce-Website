@@ -6,8 +6,7 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  useRouteMatch,
-  useParams
+  Provider
 } from "react-router-dom";
 import UserList from "./pages/UserList";
 import User from "./pages/User";
@@ -15,6 +14,7 @@ import NewUser from "./pages/NewUser";
 import ProductList from "./pages/ProductList";
 import { Product } from "./pages/Product";
 import NewProduct from "./pages/NewProduct";
+import Login from "./pages/Login";
 
 const Container = styled.div`
   display: flex;
@@ -36,6 +36,7 @@ function App() {
           <Route path="/products" element={<ProductList/>}/>
           <Route path="/product/:productId" element={<Product />}/>
           <Route path="/newproduct" element={<NewProduct />}/>
+          <Route path="/login" element={<Login />}/>
         </Routes>
       </Container>
     </Router>

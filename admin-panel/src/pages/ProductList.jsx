@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { DataGrid } from "@material-ui/data-grid";
 import { productRows } from "../data";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import * as BsIcons from "react-icons/bs"
 import styled from "styled-components";
-import { borderRadius } from '@mui/system';
+import { useDispatch, useSelector } from "react-redux"
+import { getProducts } from "../redux/apiCalls"
+
 
 const Container = styled.div`
     flex: 4;
@@ -25,6 +27,12 @@ const LıstItem = styled.div`
 
 const ProductList = () => {
     const [data,setData] = useState(productRows)
+    const dispatch = useDispatch()
+    const products = useSelector(state => state.product.products)
+
+    useEffect(() => {
+      getProducts(dispatch)
+    }, [dispatch])
   
     const handleDelete = (id) => {
         setData(data.filter((item) => item.id !== id))
@@ -79,7 +87,7 @@ const ProductList = () => {
     return (
     <Container>
        <DataGrid
-        rows={data}
+        rows={products}
         disableSelectionOnClick
         columns={columns}
         pageSize={8}
