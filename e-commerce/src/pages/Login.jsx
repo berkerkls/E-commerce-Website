@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import styled from 'styled-components'
 import { login } from '../redux/apiCalls'
 import {useDispatch} from "react-redux"
+import { useSelector } from "react-redux"
 
 const Container  = styled.div`
     width: 100vw;
@@ -53,7 +54,8 @@ const Button = styled.button`
     cursor: pointer;
 
 
-    &:hover {
+    &:hover,
+    &:disabled {
         opacity: 0.8;
     }
 `
@@ -74,11 +76,12 @@ const Login = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const dispatch = useDispatch()
+    const {isFetching, error} = useSelector((state) => state.user)
 
     const handleLogin = (e) => {
         e.preventDefault()
 
-        login(dispatch, { username, password })
+        login(dispatch,{ username, password })
     }
 
   return (
@@ -89,7 +92,7 @@ const Login = () => {
                 <Input placeholder="username" onChange={(e) => setUsername(e.target.value)} />
                 <Input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
                 <Link>Forgot your password?</Link>
-                <Button onClick={handleLogin}>Login</Button>
+                <Button onClick={handleLogin} disabled={isFetching}>Login</Button>
             </Form>
         </Wrapper>      
     </Container>

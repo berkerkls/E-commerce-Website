@@ -6,8 +6,12 @@ const userSlice = createSlice({
     initialState: {
        currentUser: null,
        isFetching: false,
-       error: false
-    },
+       error: false,
+       method:'POST',
+       body: JSON.stringify({
+                username: "mor_2314",
+                password: "83r5^_"
+    }),
     reducers: {
         loginStart:(state) => {
             state.isFetching= true
@@ -22,7 +26,7 @@ const userSlice = createSlice({
         }
         }
     }
-)
+})
 
 export const {loginStart, loginSuccess, loginFailure} = userSlice.actions
 export default userSlice.reducer
