@@ -9,7 +9,7 @@ This is a E-Commerce App for React practice and final homework for Kodluyoruz Fr
 
 ***![ecommerce](https://user-images.githubusercontent.com/100119877/191124844-2ca8ac70-85b8-4cc1-ba76-02962e4f9abf.gif)***
 ### Responsive Design
-***![res_ecommerce](https://user-images.githubusercontent.com/100119877/191124886-d3aa0bc5-2e08-42d6-b82d-efebf68e1b8a.gif)
+***![res_ecommerce](https://user-images.githubusercontent.com/100119877/191124886-d3aa0bc5-2e08-42d6-b82d-efebf68e1b8a.gif)***
 
 ## Tools 🛠️
 
