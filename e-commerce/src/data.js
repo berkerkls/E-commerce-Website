@@ -1,7 +1,7 @@
 export const sliderItems = [
     {
       id: 1,
-      img: "https://i.ytimg.com/vi/eECNpQ67JRo/maxresdefault.jpg",
+      img: "https://images.unsplash.com/photo-1607016284318-d1384bf5edd1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
       title: "LATEST GAME CONSOLES",
       desc: "DON'T COMPROMISE ON YOUR HOBBIES! GET FLAT 30% OFF FOR LATEST GAME CONSOLES",
       bg: "d7dee8",
