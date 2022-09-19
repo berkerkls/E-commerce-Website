@@ -19,7 +19,6 @@ const Title = styled.h1`
 
 const ProductListing = () => {
     const location= useLocation();
-    console.log(location)
     const cat = location.pathname.split("/")[2]
     
     const [filters,setFilters] = useState({})

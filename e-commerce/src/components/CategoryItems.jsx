@@ -35,7 +35,7 @@ const Info= styled.div`
 
 const Title= styled.h1`
     margin-bottom: 10px;
-    color: #fff;
+    color: #f4f4f4;
 `
 
 const Button= styled.button`

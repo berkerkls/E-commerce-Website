@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { popularProducts } from '../data'
 import Product from './Product'
 import axios from 'axios'
+import { useLocation } from 'react-router-dom'
 
 const Container = styled.div`
     padding:20px;
@@ -13,14 +14,14 @@ const Container = styled.div`
 `
 
 const Products = ({cat,filters,sort}) => {
-
+  const location= useLocation();
   const [products,setProducts] = useState([]);
 
 
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await axios.get("https://fakestoreapi.com/products")
+        const res = await axios.get(`https://fakestoreapi.com/products/category/${cat}`)
         setProducts(res.data)
         console.log(res.data)
       } catch(err) {

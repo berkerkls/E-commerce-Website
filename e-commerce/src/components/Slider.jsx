@@ -3,6 +3,7 @@ import * as FaArrow from "react-icons/fa"
 import { useState } from "react"
 import { sliderItems } from "../data"
 import { mobile } from "../responsive"
+import { Link } from "react-router-dom"
 
 const Container = styled.div`
     width:100%;
@@ -59,24 +60,27 @@ const InfoContainer = styled.div`
 `
 
 const Image = styled.img`
-    height:80%;
-    width:70%;
+    height:100%;
+    width:100%;
 `
 
 const Title = styled.h1`
     font-size:70px;
+    color:#3a5c8e;
 `
 const Desc = styled.p`
     margin:50px 0px;
     font-size: 20px;
     font-weight:500;
     letter-spacing: 3px;
+    color: #3a5c8e;
 `
 
 const Button = styled.button`
     padding: 10px;
     background-color: transparent;
     cursor: pointer;
+    color:#3a5c8e;
 `
 
 const Slider = () => {
@@ -105,7 +109,9 @@ const Slider = () => {
                 <InfoContainer>
                     <Title>{item.title}</Title>
                     <Desc>{item.desc}</Desc>
-                    <Button>SHOP NOW</Button>
+                    <Link to={`/products/${item.cat}`}>
+                        <Button>SHOP NOW</Button>
+                    </Link>
                 </InfoContainer>
             </Slide>
             ))}

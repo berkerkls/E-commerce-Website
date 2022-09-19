@@ -1,3 +1,4 @@
+import { useState } from "react"
 import Cart from './pages/Cart';
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -10,11 +11,28 @@ import {
   Route,
   Navigate
 } from "react-router-dom";
-import { useSelector } from "react-redux"
 
 
 function App() {
-  const user = useSelector((state) => state.user.currentUser);
+  const adminUser = {
+    username:"test",
+    password: "test"
+}
+
+  const [user, setUser] = useState({name: "", email:""})
+
+  const AuthLogin = (details) => {
+    console.log(details)
+
+    if(details.username = adminUser.username && details.password == adminUser.password ) {
+      setUser({
+        username: details.username,
+        password: details.password
+      })
+    } else {
+      console.log("not match")
+    }
+  }
 
 
   return (
@@ -24,7 +42,7 @@ function App() {
           <Route path='/products/:category' element={<ProductListing/>}/>
           <Route path='/product/:id' element={<Product/>}/>
           <Route path='/cart' element={<Cart/>}/>
-          <Route path='/login' element={user ? <Navigate to="/"/> : <Login />}/>
+          <Route path='/login' element={(user.email != "") ? <Navigate to="/"/> : <Login AuthLogin={AuthLogin}/>} />
           <Route path='/register' element={user ? <Navigate to="/"/> : <Register />}/>
         </Routes>
     </Router>

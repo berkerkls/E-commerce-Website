@@ -1,8 +1,6 @@
 import React,{useState} from 'react'
 import styled from 'styled-components'
-import { login } from '../redux/apiCalls'
-import {useDispatch} from "react-redux"
-import { useSelector } from "react-redux"
+
 
 const Container  = styled.div`
     width: 100vw;
@@ -45,7 +43,7 @@ const Input = styled.input`
     }
 `
 
-const Button = styled.button`
+const SubmitInput = styled.input`
     padding: 10px 20px;
     background-color: #ffaa00;
     border: 1px solid #f4f4f4;
@@ -71,28 +69,26 @@ const Link = styled.a`
     }
 `
 
-const Login = () => {
+const Login = ({AuthLogin}) => {
 
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
-    const dispatch = useDispatch()
-    const {isFetching, error} = useSelector((state) => state.user)
+    const [details,setDetails] = useState({username: "", password: ""})
+
 
     const handleLogin = (e) => {
         e.preventDefault()
 
-        login(dispatch,{ username, password })
+        AuthLogin(details)
     }
 
   return (
     <Container>
         <Wrapper>
             <Title>Login</Title>
-            <Form>
-                <Input placeholder="username" onChange={(e) => setUsername(e.target.value)} />
-                <Input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
+            <Form onSubmit={handleLogin}>
+                <Input placeholder="username"  onChange={e => setDetails({...details, username: e.target.value})} value={details.username}/>
+                <Input type="password" placeholder="Password" onChange={e => setDetails({...details, password: e.target.value})} value={details.password}/>
                 <Link>Forgot your password?</Link>
-                <Button onClick={handleLogin} disabled={isFetching}>Login</Button>
+                <SubmitInput type="submit" name='submit' onClick={handleLogin} />
             </Form>
         </Wrapper>      
     </Container>

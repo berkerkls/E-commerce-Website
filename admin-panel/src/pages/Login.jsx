@@ -21,7 +21,7 @@ const Input= styled.input`
     padding: 8px 12px;
 `
 
-const Button = styled.button`
+const SubInput = styled.input`
     padding: 10px 15px;
     background-color: #ffaa00;
     color: #fff;
@@ -29,22 +29,28 @@ const Button = styled.button`
     border-radius: 5px;
     cursor: pointer;
 `
+const Form = styled.form`
+`
 
-const Login = () => {
-    const [username,setUsername] = useState("")
-    const [password,setPassword] = useState("")
-    const dispatch = useDispatch()
+const Login = ({AuthLogin}) => {
+    
+const [details,setDetails] = useState({username: "", password: ""})
 
-    const handleClick = (e) => {
-        e.preventDefault()
-        login(dispatch, {username, password})
-    }
+
+const handleLogin = (e) => {
+    e.preventDefault()
+
+    AuthLogin(details)
+}
+    
 
   return (
     <Container>
-        <Input type="text" placeholder="username" onChange={(e) => setUsername(e.target.value)} />
-        <Input type="password" placeholder="password" onChange={(e) => setPassword(e.target.value)} />
-        <Button onClick={handleClick}>Login</Button>
+        <Form onSubmit={handleLogin}>
+        <Input type="text" placeholder="username" onChange={e => setDetails({...details, username: e.target.value})} value={details.username} />
+        <Input type="password" placeholder="password" onChange={e => setDetails({...details, password: e.target.value})} value={details.password} />
+        <SubInput type="submit" onClick={handleLogin}/>
+        </Form>
     </Container>
   )
 }

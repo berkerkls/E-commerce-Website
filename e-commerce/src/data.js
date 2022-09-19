@@ -1,44 +1,47 @@
 export const sliderItems = [
     {
       id: 1,
-      img: "https://images.pexels.com/photos/1094684/pexels-photo-1094684.jpeg?cs=srgb&dl=pexels-mentatdgt-1094684.jpg&fm=jpg",
-      title: "SUMMER SALE",
-      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-      bg: "fff6e5",
+      img: "https://i.ytimg.com/vi/eECNpQ67JRo/maxresdefault.jpg",
+      title: "LATEST GAME CONSOLES",
+      desc: "DON'T COMPROMISE ON YOUR HOBBIES! GET FLAT 30% OFF FOR LATEST GAME CONSOLES",
+      bg: "d7dee8",
+      cat:"electronics"
     },
     {
       id: 2,
-      img: "https://images.pexels.com/photos/1394882/pexels-photo-1394882.jpeg?cs=srgb&dl=pexels-godisable-jacob-1394882.jpg&fm=jpg",
-      title: "AUTUMN COLLECTION",
-      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+      img: "https://images.pexels.com/photos/6640013/pexels-photo-6640013.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      title: "RISE AND SHINE",
+      desc: "RISE AND SHINE WITH YOUR JEWELS! GET FLAT 30% OFF FOR NEW ARRIVALS.",
       bg: "#ffeecc",
+      cat:"jewelery"
     },
     {
       id: 3,
-      img: "https://images.pexels.com/photos/995978/pexels-photo-995978.jpeg?cs=srgb&dl=pexels-jannet-corgi-995978.jpg&fm=jpg",
+      img: "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       title: "LOUNGEWEAR LOVE",
       desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-      bg: "fbf0f4",
+      bg: "cccccc",
+      cat:"men's clothing"
     },
   ];
 
   export const categories = [
     {
       id: 1,
-      img: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      title: "SHIRT STYLE!",
+      img: "https://images.pexels.com/photos/1346154/pexels-photo-1346154.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      title: "ELECTRONICS!",
       cat:"electronics"
     },
     {
       id: 2,
-      img: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      title: "LOUNGEWEAR LOVE",
+      img: "https://www.katerinaperez.com/uploads/editor_file/link/29858/Important_Jewellery_08_427.jpg",
+      title: "JEWELERY",
       cat:"jewelery"
     },
     {
       id: 3,
-      img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-      title: "LIGHT JACKETS",
+      img: "https://images.pexels.com/photos/1639729/pexels-photo-1639729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      title: "MEN'S CLOTHİNG",
       cat:"men's clothing"
     },
   ];

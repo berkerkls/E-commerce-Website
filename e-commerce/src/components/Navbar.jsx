@@ -80,7 +80,11 @@ const Navbar = () => {
                 <AiIcons.AiOutlineSearch style={{color:"gray", fontSize:16}}/>
             </SearchContainer>
            </Left>
-           <Center><Logo>Berkerkls.</Logo></Center>
+           <Center>
+            <Link to={"/"} style={{textDecoration:"none", color:"inherit"}} >
+                <Logo>Berkerkls.</Logo>
+            </Link>
+            </Center>
            <Right>
                 <MenuItem>REGISTER</MenuItem>
                 <MenuItem>SIGN IN</MenuItem>

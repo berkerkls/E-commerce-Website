@@ -27,12 +27,6 @@ const LıstItem = styled.div`
 
 const ProductList = () => {
     const [data,setData] = useState(productRows)
-    const dispatch = useDispatch()
-    const products = useSelector(state => state.product.products)
-
-    useEffect(() => {
-      getProducts(dispatch)
-    }, [dispatch])
   
     const handleDelete = (id) => {
         setData(data.filter((item) => item.id !== id))
@@ -53,7 +47,7 @@ const ProductList = () => {
             );
           },
         },
-        { field: "stocl", headerName: "Stock", width: 200 },
+        { field: "stock", headerName: "Stock", width: 200 },
         {
           field: "status",
           headerName: "Status",
@@ -87,7 +81,7 @@ const ProductList = () => {
     return (
     <Container>
        <DataGrid
-        rows={products}
+        rows={data}
         disableSelectionOnClick
         columns={columns}
         pageSize={8}

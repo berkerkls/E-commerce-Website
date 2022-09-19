@@ -6,7 +6,7 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Provider
+  Navigate,
 } from "react-router-dom";
 import UserList from "./pages/UserList";
 import User from "./pages/User";
@@ -15,6 +15,7 @@ import ProductList from "./pages/ProductList";
 import { Product } from "./pages/Product";
 import NewProduct from "./pages/NewProduct";
 import Login from "./pages/Login";
+import { useState } from "react";
 
 const Container = styled.div`
   display: flex;
@@ -23,6 +24,26 @@ const Container = styled.div`
 
 
 function App() {
+  const adminUser = {
+    username:"admin",
+    password: "admin"
+}
+
+  const [user, setUser] = useState({name: "", email:""})
+
+  const AuthLogin = (details) => {
+    console.log(details)
+
+    if(details.username = adminUser.username && details.password == adminUser.password ) {
+      setUser({
+        username: details.username,
+        password: details.password
+      })
+    } else {
+      console.log("not match")
+    }
+  }
+
   return (
     <Router>
       <Navbar />
@@ -36,7 +57,7 @@ function App() {
           <Route path="/products" element={<ProductList/>}/>
           <Route path="/product/:productId" element={<Product />}/>
           <Route path="/newproduct" element={<NewProduct />}/>
-          <Route path="/login" element={<Login />}/>
+          <Route path="/login" element={(user.email != "") ? <Navigate to="/"/> : <Login AuthLogin={AuthLogin}/>}/>
         </Routes>
       </Container>
     </Router>
