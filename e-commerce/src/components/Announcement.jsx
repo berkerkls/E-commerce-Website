@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { devices } from '../responsive'
 
 
 const Container = styled.div`
@@ -11,6 +12,10 @@ const Container = styled.div`
     align-items: center;
     font-size:18px;
     font-weight: 500;
+    @media ${devices.mobileM},${devices.mobileL}{
+      text-align: center;
+      padding: 8px;
+  }
 `
 const Announcement = () => {
   return (

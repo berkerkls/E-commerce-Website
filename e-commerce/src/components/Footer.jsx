@@ -3,11 +3,15 @@ import styled from 'styled-components'
 import * as AiIcons from "react-icons/ai"
 import * as IoIcons from "react-icons/io"
 import * as FaIcons from "react-icons/fa"
+import { devices } from "../responsive"
 
 const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    @media ${devices.mobileM},${devices.mobileL}{
+    flex-direction: column;
+  }
 `
 
 const Left = styled.div`
@@ -43,6 +47,9 @@ const Center = styled.div`
     flex:1;
     padding: 20px;
     margin-left:3rem;
+    @media ${devices.mobileM},${devices.mobileL}{
+    display: none;
+  }
 `
 
 const Title = styled.h3`
@@ -66,6 +73,10 @@ const ListItem = styled.li`
 const Right = styled.div`
     flex:1;
     padding: 20px;
+    @media ${devices.mobileM},${devices.mobileL}{
+    background-color: #fee9bf;
+    margin-top: 10px;
+  }
 `
 
 const ContactItem = styled.div`

@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import styled from 'styled-components'
+import { devices } from '../responsive'
 
 
 const Container  = styled.div`
@@ -15,6 +16,9 @@ const Wrapper = styled.div`
     width: 40%;
     padding: 20px;
     background-color: #fff;
+    @media ${devices.mobileM},${devices.mobileL}{
+    width: 75%;
+  }
     
 `
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { mobile } from '../responsive'
+import { devices } from '../responsive'
 
 const Container = styled.div`
     height: 70vh;
@@ -18,7 +18,9 @@ const Image= styled.img`
     height:100%;
     object-fit: cover;
     margin-left: 30px;
-    ${mobile({ height:"70vh" })};
+    @media ${devices.mobileM},${devices.mobileL}{
+    height: 65vh;
+  }
 `
 
 const Info= styled.div`

@@ -1,6 +1,7 @@
 import React from 'react'
 import * as RiIcons from "react-icons/ri"
 import styled from 'styled-components'
+import { devices } from "../responsive"
 
 const Container = styled.div`
     display: flex;
@@ -9,12 +10,20 @@ const Container = styled.div`
     align-items: center;
     height: 30vh;
     background-color: #f4f4f4;
+    @media ${devices.mobileM},${devices.mobileL}{
+    height: 40vh;
+    padding: 10px;
+  }
+
 `
 
 const Title = styled.h1`
     margin-bottom:5px;
     font-size:3rem;
     color: #ffb732;
+    @media ${devices.mobileM},${devices.mobileL}{
+    text-align: center;
+  }
 `
 
 const Desc = styled.p`
@@ -23,6 +32,9 @@ const Desc = styled.p`
     margin-bottom:15px;
     font-size: 1.5rem;
     color: #777;
+    @media ${devices.mobileM},${devices.mobileL}{
+    text-align: center;
+  }
 `
 
 const InputContainer = styled.div`
@@ -30,6 +42,9 @@ const InputContainer = styled.div`
     display: flex;
     justify-content:center;
     align-items: center;
+    @media ${devices.mobileM},${devices.mobileL}{
+    width: 300px;
+  }
 `
 
 const Input = styled.input`
