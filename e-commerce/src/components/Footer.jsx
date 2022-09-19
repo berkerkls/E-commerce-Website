@@ -9,7 +9,7 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    @media ${devices.mobileM},${devices.mobileL}{
+    @media ${devices.mobileM},${devices.mobileL},${devices.tablet}{
     flex-direction: column;
   }
 `
@@ -47,7 +47,7 @@ const Center = styled.div`
     flex:1;
     padding: 20px;
     margin-left:3rem;
-    @media ${devices.mobileM},${devices.mobileL}{
+    @media ${devices.mobileM},${devices.mobileL},${devices.tablet}{
     display: none;
   }
 `
@@ -73,7 +73,7 @@ const ListItem = styled.li`
 const Right = styled.div`
     flex:1;
     padding: 20px;
-    @media ${devices.mobileM},${devices.mobileL}{
+    @media ${devices.mobileM},${devices.mobileL},${devices.tablet}{
     background-color: #fee9bf;
     margin-top: 10px;
   }

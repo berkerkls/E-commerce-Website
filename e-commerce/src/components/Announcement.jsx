@@ -12,7 +12,7 @@ const Container = styled.div`
     align-items: center;
     font-size:18px;
     font-weight: 500;
-    @media ${devices.mobileM},${devices.mobileL}{
+    @media ${devices.mobileM},${devices.mobileL},${devices.tablet}{
       text-align: center;
       padding: 8px;
   }

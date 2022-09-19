@@ -18,7 +18,7 @@ const Image= styled.img`
     height:100%;
     object-fit: cover;
     margin-left: 30px;
-    @media ${devices.mobileM},${devices.mobileL}{
+    @media ${devices.mobileM},${devices.mobileL},${devices.tablet}{
     height: 65vh;
   }
 `

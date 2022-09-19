@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 
 const Container = styled.div`
     height: 70px;
-    @media ${devices.mobileM},${devices.mobileL}{
+    @media ${devices.mobileM},${devices.mobileL},${devices.tablet}{
     height:50px;
   }
 `
@@ -16,7 +16,7 @@ const Wrapper = styled.div`
     padding: 10px;
     display: flex;
     justify-content: space-between;
-    @media ${devices.mobileM},${devices.mobileL}{
+    @media ${devices.mobileM},${devices.mobileL},${devices.tablet}{
     padding: 10px 0px;
   }
     
@@ -25,7 +25,7 @@ const Wrapper = styled.div`
 const Language = styled.span`
     font-size: 14px;
     cursor: pointer;
-    @media ${devices.mobileM},${devices.mobileL}{
+    @media ${devices.mobileM},${devices.mobileL},${devices.tablet}{
     display: none;
   }
     
@@ -36,7 +36,7 @@ const SearchContainer = styled.div`
     display: flex;
     align-items:center;
     margin-left: 20px;
-    @media ${devices.mobileM},${devices.mobileL}{
+    @media ${devices.mobileM},${devices.mobileL},${devices.tablet}{
     margin-left: -10px;;
     margin-right: 10px;
   }
@@ -46,7 +46,7 @@ const SearchContainer = styled.div`
 const Input = styled.input`
     border:none;
     padding:10px 20px;
-    @media ${devices.mobileM},${devices.mobileL}{
+    @media ${devices.mobileM},${devices.mobileL},${devices.tablet}{
     width: 50px;
   }
     
@@ -68,7 +68,7 @@ const Center = styled.div`
 
 const Logo = styled.h1`
     font-weight: bold;
-    @media ${devices.mobileM}{
+    @media ${devices.mobileM},${devices.tablet}{
     font-size: 24px;
   }
    
@@ -78,7 +78,7 @@ const Right = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    @media ${devices.mobileM}{
+    @media ${devices.mobileM},${devices.tablet}{
     justify-content: center;
     flex: 2;
   }
@@ -89,7 +89,7 @@ const MenuItem = styled.div`
     font-size:14px;
     cursor: pointer;
     margin-left:25px;
-    @media ${devices.mobileM}{
+    @media ${devices.mobileM},${devices.tablet}{
     font-size: 12px;
     margin-left: 10px;
   }
